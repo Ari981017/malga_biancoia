@@ -2,26 +2,29 @@
 import { ref } from 'vue';
 import type { Activity } from './types';
 import ItineraryDetail from './ItineraryDetail.vue';
+import hikingImage from '../images/itinerary/hiking.jpg';
+import wineryImage from '../images/itinerary/winery.jpg';
+import marketImage from '../images/itinerary/market.jpg';
 
 const activities: Activity[] = [
   {
     title: 'Hiking Trails',
     description: 'Explore scenic mountain trails just minutes away from the resort. Our trails offer varying difficulty levels, from easy nature walks to challenging mountain hikes. Each trail is well-marked and maintained, offering stunning views of the surrounding countryside. You might spot local wildlife and rare plant species along the way.',
-    imageUrl: 'https://images.unsplash.com/photo-1551632811-561732d1e306',
+    imageUrl: hikingImage,
     distance: '5 min drive',
     location: { lat: 43.7696, lng: 11.2558 }
   },
   {
     title: 'Local Winery',
     description: 'Visit our partner winery for tastings and tours. Experience the art of winemaking firsthand in this historic vineyard. The winery offers guided tours of their cellars, explaining the wine-making process from grape to bottle. Enjoy tastings of their award-winning wines paired with local cheeses and charcuterie.',
-    imageUrl: 'https://images.unsplash.com/photo-1507934683622-9ec7987427b3',
+    imageUrl: wineryImage,
     distance: '15 min drive',
     location: { lat: 43.7746, lng: 11.2558 }
   },
   {
     title: 'Farmers Market',
     description: 'Experience local produce and crafts at the weekly market. Meet local farmers and artisans while browsing through fresh seasonal produce, handmade crafts, and local delicacies. The market is a hub of community activity and the perfect place to experience authentic local culture.',
-    imageUrl: 'https://images.unsplash.com/photo-1488459716781-31db52582fe9',
+    imageUrl: marketImage,
     distance: '10 min drive',
     location: { lat: 43.7696, lng: 11.2608 }
   }

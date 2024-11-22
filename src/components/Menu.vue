@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { ChevronDownIcon } from '@heroicons/vue/24/outline';
+import antipastiImage from '../images/menu/antipasti.jpg';
+import primiImage from '../images/menu/primi.jpg';
+import secondiImage from '../images/menu/secondi.jpg';
+import dolciImage from '../images/menu/dolci.jpg';
 
 interface MenuItem {
   name: string;
@@ -21,7 +25,7 @@ const menu: MenuCategory[] = [
   {
     id: 'antipasti',
     title: 'Antipasti',
-    image: 'https://images.unsplash.com/photo-1546793665-c74683f339c1',
+    image: antipastiImage,
     items: [
       { name: 'Panino con salame e/o formaggio', description: 'Artisanal bread with selected cured meats and cheeses', price: 12 },
       { name: 'Tagliere di Formaggi', description: 'Selection of local aged cheeses', price: 16 },
@@ -32,7 +36,7 @@ const menu: MenuCategory[] = [
   {
     id: 'primi',
     title: 'Primi',
-    image: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601',
+    image: primiImage,
     items: [
       { name: 'Gnocchi al Burro di Malga', description: 'Potato gnocchi with mountain butter', price: 18 },
       { name: 'Gnocchi al Ragù di Sorana', description: 'Potato gnocchi with traditional meat sauce', price: 20 },
@@ -42,7 +46,7 @@ const menu: MenuCategory[] = [
   {
     id: 'secondi',
     title: 'Secondi',
-    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836',
+    image: secondiImage,
     items: [
       { name: 'Tosella con Polenta e Funghi', description: 'Fresh cheese with polenta and mushrooms', price: 24 },
       { name: 'Hamburger Biancoia', description: 'Artisanal beef burger with local cheese', price: 22 },
@@ -57,7 +61,7 @@ const menu: MenuCategory[] = [
   {
     id: 'dolci',
     title: 'Dolci',
-    image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777',
+    image: dolciImage,
     items: [
       { name: 'Panna Cotta', description: 'Classic Italian dessert with berry coulis', price: 8 },
       { name: 'AgriGelato', description: 'Homemade ice cream with farm-fresh ingredients', price: 7 },

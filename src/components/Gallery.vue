@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import mainBuildingImage from '../images/gallery/main-building.jpg';
+import diningImage from '../images/gallery/dining.jpg';
+import gardenImage from '../images/gallery/garden.jpg';
+import surroundingsImage from '../images/gallery/surroundings.jpg';
 
 interface GalleryImage {
   url: string;
@@ -9,22 +13,22 @@ interface GalleryImage {
 
 const images: GalleryImage[] = [
   {
-    url: 'https://images.unsplash.com/photo-1516571748831-5d81767b044d',
+    url: mainBuildingImage,
     title: 'Main Building',
     description: 'Our beautifully restored farmhouse'
   },
   {
-    url: 'https://images.unsplash.com/photo-1595548984660-f4f56ef9fdc4',
+    url: diningImage,
     title: 'Dining Area',
     description: 'Farm-to-table dining experience'
   },
   {
-    url: 'https://images.unsplash.com/photo-1542928658-22251e208ac1',
+    url: gardenImage,
     title: 'Garden',
     description: 'Our organic vegetable garden'
   },
   {
-    url: 'https://images.unsplash.com/photo-1469796466635-455ede028aca',
+    url: surroundingsImage,
     title: 'Surroundings',
     description: 'Beautiful countryside views'
   }

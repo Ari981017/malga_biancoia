@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { TrophyIcon } from '@heroicons/vue/24/outline';
+
 interface NewsItem {
   title: string;
   date: string;
@@ -32,7 +34,10 @@ const news: NewsItem[] = [
               {{ new Date(item.date).toLocaleDateString() }}
             </time>
           </div>
-          <p class="text-gray-600">{{ item.content }}</p>
+          <p class="text-gray-600 flex items-center space-x-2">
+            <TrophyIcon class="w-8 h-8 text-farm-600" />
+            <span>{{ item.content }}</span>
+          </p>
         </article>
       </div>
     </div>

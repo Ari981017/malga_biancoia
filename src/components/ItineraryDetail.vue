@@ -73,12 +73,9 @@ const cards: Card[] = [
               <a href="https://footpathapp.com/routes/A587E5A9-D449-4112-B46B-74B7906639EB" target="_blank" class="footmap">Itinerario Malga Biancoia</a>
             </p>
             
-
             <!-- Map -->
-
             <div class="mb-6">
               <h3 class="text-lg font-semibold mb-2">Mappa</h3>
-
               <!-- Griglia con 3 card -->
               <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 <div 

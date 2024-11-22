@@ -17,7 +17,7 @@ const links = {
 <template>
   <footer class="bg-farm-700 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-60" style="display: flex; justify-content:space-around;">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-60" style="display: flex; justify-content:space-between;">
         <!-- Contact Info -->
         <div >
           <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
@@ -36,7 +36,8 @@ const links = {
             <a v-for="social in links.social" 
                :key="social.name"
                :href="social.href"
-               class="text-farm-200 hover:text-white transition-colors">
+               class="text-farm-200 hover:text-white transition-colors"
+               target="_blank">
               {{ social.name }}
             </a>
           </div>

@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import type { Activity } from './types';
 import ItineraryDetail from './ItineraryDetail.vue';
 import hikingImage from '../images/itinerary/cartelli.jpg';
+import greenImage from '../images/itinerary/green.png';
 
 const activities: Activity[] = [
   {
@@ -13,10 +14,10 @@ const activities: Activity[] = [
     location: { lat: 43.7696, lng: 11.2558 }
   },
   {
-    title: 'Local Winery',
-    description: 'Visit our partner winery for tastings and tours. Experience the art of winemaking firsthand in this historic vineyard. The winery offers guided tours of their cellars, explaining the wine-making process from grape to bottle. Enjoy tastings of their award-winning wines paired with local cheeses and charcuterie.',
-    imageUrl: "https://via.placeholder.com/400x200",
-    distance: '15 min drive',
+    title: 'A1 | Val Biancoia e dintorni',
+    description: 'L’itinerario si snoda in una zona facilmente raggiungibile dalla pianura, con interessanti viste panoramiche sulla pianura stessa e, verso est, sul Monte Grappa, sulle Pale di San Martino e sui rilievi feltrini e bellunesi.Il paesaggio è caratterizzato da estesi boschi di faggio che, verso la fine della stagione estiva, regalano panorami autunnali molto suggestivi. Il percorso corrisponde parzialmente all’itinerario CAI 872 Ciscati/Biancoia. Quest’area, vocata all’attività estrattiva, è anche conosciuta per le vicine Cave dipinte di Rubbio.',
+    imageUrl: greenImage,
+    distance: '4 ore',
     location: { lat: 43.7746, lng: 11.2558 }
   }
 ];

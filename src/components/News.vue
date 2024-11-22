@@ -16,7 +16,7 @@ const news: NewsItem[] = [
   {
     title: 'SU IN MALGA! - Gallio',
     date: '2024-07-28',
-    content: '2° Classificati Nostrano Biancoia'
+    content: '2° Classificato Nostrano Biancoia'
   }
 ];
 </script>

@@ -4,6 +4,8 @@ import { XMarkIcon } from '@heroicons/vue/24/outline';
 import hikingImage from '../images/itinerary/malga_it.jpeg';
 import wineryImage from '../images/itinerary/biancoia.jpg';
 import marketImage from '../images/itinerary/map.jpeg';
+import itnerary2 from '../images/itinerary/it_2.png';
+import map2 from '../images/itinerary/map2.png';
 
 const props = defineProps<{
   activity: Activity | null;
@@ -39,6 +41,28 @@ const cards: Card[] = [
   },
 ];
 
+const cards2: Card[] = [
+  {
+    title: "Luogo 1",
+    description: "Descrizione del primo luogo",
+    imageUrl: itnerary2,
+  },
+  {
+    title: "Luogo 2",
+    description: "Descrizione del secondo luogo",
+    imageUrl: map2,
+  },
+];
+
+
+function getCards(): Card[] {
+  if (props.isOpen && props.activity) {
+    return props.activity.title === 'Anello Biancoia' ? cards : cards2;
+  }
+  return [];
+}
+
+
 </script>
 
 <template>
@@ -72,6 +96,10 @@ const cards: Card[] = [
               <br> 
               <a href="https://footpathapp.com/routes/A587E5A9-D449-4112-B46B-74B7906639EB" target="_blank" class="footmap">Itinerario Malga Biancoia</a>
             </p>
+            <p v-if="activity.title === 'A1 | Val Biancoia e dintorni'">Per un esperienza completa segui la nostra guida:
+              <br> 
+              <a href="https://www.komoot.com/it-it/tour/398572528?share_token=aJs6mWgobf91G9GcKnehI523nIzTNAnI38Xh7FTlEMGmQFhRxV&ref=wtd" target="_blank" class="footmap">Komoot</a>
+            </p>
             
             <!-- Map -->
             <div class="mb-6">
@@ -79,7 +107,7 @@ const cards: Card[] = [
               <!-- Griglia con 3 card -->
               <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 <div 
-                  v-for="(card, index) in cards" 
+                  v-for="(card, index) in getCards()" 
                   :key="index" 
                   class="border border-gray-300 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                   <!-- Immagine card -->
@@ -92,7 +120,7 @@ const cards: Card[] = [
             </div>
 
             <!-- Tips for Visitors -->
-            <div>
+            <div v-if="activity.title === 'Anello Biancoia'">
               <h3 class="text-lg font-semibold mb-2">Tips per i visitatori</h3>
               <ul class="list-disc pl-5 text-gray-600">
                 <li>Il momento perfetto per la camminata è al mattino.</li>

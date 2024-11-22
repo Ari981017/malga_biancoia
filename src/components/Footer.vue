@@ -8,9 +8,9 @@ const links = {
   contact: {
     phone: '+39 347 1094928',
     phone2: '+39 349 1482936',
-    email: 'larivierasoc.agr@gmail.com',
-    address: ' Via biancoia, 1, 36062 Lusiana Conco VI'
-  }
+    email: 'larivierasoc.agr@gmail.com'
+  },
+  position: { addres:'Via biancoia, 1, 36062 Lusiana Conco VI'}
 };
 </script>
 
@@ -20,18 +20,25 @@ const links = {
       <div class="grid grid-cols-1 md:grid-cols-2 gap-60" style="display: flex; justify-content:space-between;">
         <!-- Contact Info -->
         <div >
-          <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+          <h3 class="text-xl font-semibold mb-4">Contattaci</h3>
           <div class="space-y-2 text-farm-200">
             <p>{{ links.contact.phone }}</p>
             <p>{{ links.contact.phone2 }}</p>
             <p>{{ links.contact.email }}</p>
-            <p>{{ links.contact.address }}</p>
+          </div>
+        </div>
+
+        <!-- Posizione -->
+        <div >
+          <h3 class="text-xl font-semibold mb-4">Posizione</h3>
+          <div class="space-y-2 text-farm-200">
+            <p>{{ links.position.addres }}</p>
           </div>
         </div>
 
         <!-- Social Links -->
         <div>
-          <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+          <h3 class="text-xl font-semibold mb-4">Seguici</h3>
           <div class="flex space-x-4">
             <a v-for="social in links.social" 
                :key="social.name"

@@ -4,7 +4,6 @@ import heroImage from '../images/malga.jpeg';
 defineProps<{
   title: string;
   subtitle: string;
-  imageUrl: string;
 }>();
 </script>
 

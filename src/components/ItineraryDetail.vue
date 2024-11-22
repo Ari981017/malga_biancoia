@@ -103,7 +103,7 @@ function getCards(): Card[] {
             
             <!-- Map -->
             <div class="mb-6">
-              <h3 class="text-lg font-semibold mb-2">Mappa</h3>
+              <br>
               <!-- Griglia con 3 card -->
               <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 <div 

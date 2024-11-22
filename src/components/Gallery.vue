@@ -18,13 +18,13 @@ const images: GalleryImage[] = [
   },
   {
     url: pasticcioImage,
-    title: 'Pasticcio',
-    description: 'Il nostro pasticcio fatto in casa!'
+    title: 'Lasagne',
+    description: 'Le nostro lasagne fatto in casa!'
   },
   {
     url: cheeseImage,
     title: 'Formaggi',
-    description: 'I nostri formaggi'
+    description: 'I nostri formaggi artigianali'
   }
 ];
 

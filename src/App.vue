@@ -6,6 +6,7 @@ import Itinerary from './components/Itinerary.vue';
 import News from './components/News.vue';
 import Gallery from './components/Gallery.vue';
 import Footer from './components/Footer.vue';
+
 </script>
 
 <template>
@@ -13,8 +14,8 @@ import Footer from './components/Footer.vue';
     <NavBar />
     <main>
       <Hero 
-        title="Welcome to Our Farmhouse Resort"
-        subtitle="Experience authentic farm living with modern comfort in our beautifully restored 19th-century farmhouse"
+        title="Agriturismo Malga Biancoia"
+        subtitle="Nel 2023, la nostra azienda agricola familiare ha preso in gestione l’agriturismo Malga Biancoia, con l’intento di condividere la nostra passione e tradizione. Qui potrai godere della natura e assaporare i nostri formaggi artigianali, vivendo un’esperienza autentica in un ambiente familiare."
         imageUrl="https://images.unsplash.com/photo-1516571748831-5d81767b044d"
       />
       <Menu />

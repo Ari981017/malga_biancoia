@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import heroImage from '../images/hero.jpg';
+import heroImage from '../images/malga.jpeg';
 
 defineProps<{
   title: string;

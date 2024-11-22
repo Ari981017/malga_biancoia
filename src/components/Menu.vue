@@ -8,10 +8,7 @@ import dolciImage from '../images/menu/dolci.jpg';
 
 interface MenuItem {
   name: string;
-  description: string;
-  price: number;
   image?: string;
-  isSpecial?: boolean;
 }
 
 interface MenuCategory {
@@ -27,10 +24,10 @@ const menu: MenuCategory[] = [
     title: 'Antipasti',
     image: antipastiImage,
     items: [
-      { name: 'Panino con salame e/o formaggio', description: 'Artisanal bread with selected cured meats and cheeses', price: 12 },
-      { name: 'Tagliere di Formaggi', description: 'Selection of local aged cheeses', price: 16 },
-      { name: 'Tagliere di Salumi', description: 'Assortment of cured meats', price: 16 },
-      { name: 'Tagliere Misto', description: 'Mixed board of cheeses and cured meats', price: 22 }
+      { name: 'Panino con salame e/o formaggio'},
+      { name: 'Tagliere di Formaggi'},
+      { name: 'Tagliere di Salumi'},
+      { name: 'Tagliere Misto'}
     ]
   },
   {
@@ -38,9 +35,9 @@ const menu: MenuCategory[] = [
     title: 'Primi',
     image: primiImage,
     items: [
-      { name: 'Gnocchi al Burro di Malga', description: 'Potato gnocchi with mountain butter', price: 18 },
-      { name: 'Gnocchi al Ragù di Sorana', description: 'Potato gnocchi with traditional meat sauce', price: 20 },
-      { name: 'Lasagne al Ragù di Sorana', description: 'Layered pasta with meat sauce and béchamel', price: 22 }
+      { name: 'Gnocchi al Burro di Malga'},
+      { name: 'Gnocchi al Ragù di Sorana'},
+      { name: 'Lasagne al Ragù di Sorana'}
     ]
   },
   {
@@ -48,14 +45,9 @@ const menu: MenuCategory[] = [
     title: 'Secondi',
     image: secondiImage,
     items: [
-      { name: 'Tosella con Polenta e Funghi', description: 'Fresh cheese with polenta and mushrooms', price: 24 },
-      { name: 'Hamburger Biancoia', description: 'Artisanal beef burger with local cheese', price: 22 },
-      { 
-        name: 'Piatto del giorno', 
-        description: "Chef's special of the day", 
-        price: 26,
-        isSpecial: true 
-      }
+      { name: 'Tosella con Polenta e Funghi'},
+      { name: 'Hamburger Biancoia'},
+      { name: 'Piatto del giorno'}
     ]
   },
   {
@@ -63,9 +55,9 @@ const menu: MenuCategory[] = [
     title: 'Dolci',
     image: dolciImage,
     items: [
-      { name: 'Panna Cotta', description: 'Classic Italian dessert with berry coulis', price: 8 },
-      { name: 'AgriGelato', description: 'Homemade ice cream with farm-fresh ingredients', price: 7 },
-      { name: 'Dolce della Casa', description: 'Daily special dessert', price: 9 }
+      { name: 'Panna Cotta'},
+      { name: 'AgriGelato'},
+      { name: 'Dolce della Casa'}
     ]
   }
 ];
@@ -82,7 +74,7 @@ const isActive = (categoryId: string) => activeCategory.value === categoryId;
 <template>
   <section id="menu" class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Our Menu</h2>
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Menu</h2>
 
       <!-- Menu Categories -->
       <div class="space-y-6">
@@ -114,22 +106,13 @@ const isActive = (categoryId: string) => activeCategory.value === categoryId;
             <div class="divide-y divide-gray-200">
               <div v-for="item in category.items" 
                    :key="item.name"
-                   :class="[
-                     'p-6 transition-colors duration-200',
-                     item.isSpecial ? 'bg-farm-50' : ''
-                   ]">
+                   :class="['p-6 transition-colors duration-200']">
                 <div class="flex justify-between items-start">
                   <div class="flex-1">
                     <h4 class="font-medium text-gray-900 flex items-center">
                       {{ item.name }}
-                      <span v-if="item.isSpecial" 
-                            class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-farm-100 text-farm-800">
-                        Special
-                      </span>
                     </h4>
-                    <p class="mt-1 text-sm text-gray-500">{{ item.description }}</p>
                   </div>
-                  <span class="text-farm-600 font-medium">€{{ item.price }}</span>
                 </div>
               </div>
             </div>

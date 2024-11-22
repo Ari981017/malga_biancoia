@@ -2,31 +2,22 @@
 import { ref } from 'vue';
 import type { Activity } from './types';
 import ItineraryDetail from './ItineraryDetail.vue';
-import hikingImage from '../images/itinerary/hiking.jpg';
-import wineryImage from '../images/itinerary/winery.jpg';
-import marketImage from '../images/itinerary/market.jpg';
+import hikingImage from '../images/itinerary/cartelli.jpg';
 
 const activities: Activity[] = [
   {
-    title: 'Hiking Trails',
-    description: 'Explore scenic mountain trails just minutes away from the resort. Our trails offer varying difficulty levels, from easy nature walks to challenging mountain hikes. Each trail is well-marked and maintained, offering stunning views of the surrounding countryside. You might spot local wildlife and rare plant species along the way.',
+    title: 'Anello Biancoia',
+    description: 'La passeggiata ad anello nei boschi di Val Biancoia, con partenza e arrivo a Malga Biancoia, è perfetta per chi vuole godersi la natura in tutta tranquillità. Questo percorso di circa 1 ora e 30 minuti ti porta tra alberi secolari e splendide viste panoramiche.Iniziamo da Malga Biancoia, salendo leggermente, potrai ammirare la valle e le montagne circostanti, con pause obbligate per scattare qualche foto. Nei punti più alti, prati fioriti e scorci mozzafiato ti aspettano.La discesa ti riporta lentamente verso Malga Biancoia, dove ti aspetta un meritato riposo. Dopo questa bellissima passeggiata, l’ideale è fermarsi per un pranzo tradizionale nella nostra malga.',
     imageUrl: hikingImage,
-    distance: '5 min drive',
+    distance: '1 ora 30 minuti',
     location: { lat: 43.7696, lng: 11.2558 }
   },
   {
     title: 'Local Winery',
     description: 'Visit our partner winery for tastings and tours. Experience the art of winemaking firsthand in this historic vineyard. The winery offers guided tours of their cellars, explaining the wine-making process from grape to bottle. Enjoy tastings of their award-winning wines paired with local cheeses and charcuterie.',
-    imageUrl: wineryImage,
+    imageUrl: "https://via.placeholder.com/400x200",
     distance: '15 min drive',
     location: { lat: 43.7746, lng: 11.2558 }
-  },
-  {
-    title: 'Farmers Market',
-    description: 'Experience local produce and crafts at the weekly market. Meet local farmers and artisans while browsing through fresh seasonal produce, handmade crafts, and local delicacies. The market is a hub of community activity and the perfect place to experience authentic local culture.',
-    imageUrl: marketImage,
-    distance: '10 min drive',
-    location: { lat: 43.7696, lng: 11.2608 }
   }
 ];
 
@@ -49,8 +40,8 @@ const closeDetail = () => {
 <template>
   <section id="itinerary" class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Nearby Attractions</h2>
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Itinerari a Biancoia</h2>
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
         <div v-for="activity in activities" 
              :key="activity.title" 
              @click="showActivityDetail(activity)"

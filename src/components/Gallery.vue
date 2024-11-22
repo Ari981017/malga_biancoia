@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import mainBuildingImage from '../images/gallery/main-building.jpg';
-import diningImage from '../images/gallery/dining.jpg';
-import gardenImage from '../images/gallery/garden.jpg';
-import surroundingsImage from '../images/gallery/surroundings.jpg';
+import hamburgerImage from '../images/gallery/panino.jpg';
+import pasticcioImage from '../images/gallery/pasticcio.jpg';
+import cheeseImage from '../images/gallery/formaggio.jpg';
 
 interface GalleryImage {
   url: string;
@@ -13,24 +12,19 @@ interface GalleryImage {
 
 const images: GalleryImage[] = [
   {
-    url: mainBuildingImage,
-    title: 'Main Building',
-    description: 'Our beautifully restored farmhouse'
+    url: hamburgerImage,
+    title: 'Hamburger Biancoia',
+    description: 'Il nostro hamburger di sorna!'
   },
   {
-    url: diningImage,
-    title: 'Dining Area',
-    description: 'Farm-to-table dining experience'
+    url: pasticcioImage,
+    title: 'Pasticcio',
+    description: 'Il nostro pasticcio fatto in casa!'
   },
   {
-    url: gardenImage,
-    title: 'Garden',
-    description: 'Our organic vegetable garden'
-  },
-  {
-    url: surroundingsImage,
-    title: 'Surroundings',
-    description: 'Beautiful countryside views'
+    url: cheeseImage,
+    title: 'Formaggi',
+    description: 'I nostri formaggi'
   }
 ];
 
@@ -40,13 +34,13 @@ const selectedImage = ref<GalleryImage | null>(null);
 <template>
   <section id="gallery" class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Gallery</h2>
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Galleria</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <div v-for="image in images" :key="image.url" 
              @click="selectedImage = image"
              class="cursor-pointer group relative">
           <img :src="image.url" :alt="image.title" 
-               class="w-full h-64 object-cover rounded-lg">
+               class="w-full h-full object-cover rounded-lg">
           <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity rounded-lg">
             <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100">
               <span class="text-white text-lg font-medium">{{ image.title }}</span>

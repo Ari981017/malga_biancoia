@@ -7,19 +7,14 @@ interface NewsItem {
 
 const news: NewsItem[] = [
   {
-    title: 'Summer Festival Announcement',
-    date: '2024-06-01',
-    content: 'Join us for our annual Summer Festival featuring local music, food, and crafts.'
+    title: 'CASEUS',
+    date: '2024-10-05',
+    content: '1° Classificato Formaggio di Fattoria Caciotta'
   },
   {
-    title: 'New Farm-to-Table Menu',
-    date: '2024-05-15',
-    content: 'We\'re excited to announce our new seasonal menu featuring ingredients from our garden.'
-  },
-  {
-    title: 'Cooking Classes Begin',
-    date: '2024-05-01',
-    content: 'Learn traditional cooking techniques with our expert chefs every weekend.'
+    title: 'SU IN MALGA! - Gallio',
+    date: '2024-07-28',
+    content: '2° Classificati Nostrano Biancoia'
   }
 ];
 </script>
@@ -27,7 +22,7 @@ const news: NewsItem[] = [
 <template>
   <section id="news" class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Latest News</h2>
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">News</h2>
       <div class="space-y-8">
         <article v-for="item in news" :key="item.title" 
                  class="bg-white p-6 rounded-lg shadow-md">

@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from 'vue';
 import type { Activity } from './types';
 import { XMarkIcon } from '@heroicons/vue/24/outline';
-import type { Map as LeafletMap, TileLayer } from 'leaflet';
+import hikingImage from '../images/itinerary/malga_it.jpeg';
+import wineryImage from '../images/itinerary/biancoia.jpg';
+import marketImage from '../images/itinerary/map.jpeg';
 
 const props = defineProps<{
   activity: Activity | null;
@@ -13,72 +14,31 @@ const emit = defineEmits<{
   (e: 'close'): void;
 }>();
 
-const mapContainer = ref<HTMLElement | null>(null);
-const map = ref<LeafletMap | null>(null);
+interface Card {
+  title: string;
+  description: string;
+  imageUrl: string;
+}
 
-const initMap = async () => {
-  if (!props.activity || !mapContainer.value) return;
-
-  const L = (await import('leaflet')).default;
-  
-  // Add Leaflet CSS
-  if (!document.querySelector('#leaflet-css')) {
-    const link = document.createElement('link');
-    link.id = 'leaflet-css';
-    link.rel = 'stylesheet';
-    link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
-    document.head.appendChild(link);
-  }
-
-  // Resort location (example coordinates)
-  const resortLocation = [43.7696, 11.2558];
-  // Activity location (example coordinates offset from resort)
-  const activityLocation = [43.7696 + Math.random() * 0.01, 11.2558 + Math.random() * 0.01];
-
-  map.value = L.map(mapContainer.value).setView(resortLocation, 14);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map.value);
-
-  // Add markers
-  L.marker(resortLocation).addTo(map.value)
-    .bindPopup('Farmhouse Resort')
-    .openPopup();
-
-  L.marker(activityLocation).addTo(map.value)
-    .bindPopup(props.activity.title);
-
-  // Draw a line between points
-  L.polyline([resortLocation, activityLocation], {color: 'red'}).addTo(map.value);
-};
-
-watch(() => props.activity, async (newActivity) => {
-  if (newActivity) {
-    // Wait for DOM update
-    await new Promise(resolve => setTimeout(resolve, 0));
-    initMap();
-  }
-});
-
-onUnmounted(() => {
-  if (map.value) {
-    map.value.remove();
-    map.value = null;
-  }
-});
-
-const openingHours = [
-  { day: 'Monday - Friday', hours: '9:00 AM - 5:00 PM' },
-  { day: 'Saturday', hours: '10:00 AM - 4:00 PM' },
-  { day: 'Sunday', hours: 'Closed' }
+// Sample data for cards
+const cards: Card[] = [
+  {
+    title: "Luogo 1",
+    description: "Descrizione del primo luogo",
+    imageUrl: hikingImage,
+  },
+  {
+    title: "Luogo 2",
+    description: "Descrizione del secondo luogo",
+    imageUrl: wineryImage,
+  },
+  {
+    title: "Luogo 3",
+    description: "Descrizione del terzo luogo",
+    imageUrl: marketImage,
+  },
 ];
 
-const contactInfo = {
-  phone: '+1 (555) 123-4567',
-  email: 'info@example.com',
-  website: 'www.example.com'
-};
 </script>
 
 <template>
@@ -108,43 +68,39 @@ const contactInfo = {
 
           <div class="prose max-w-none">
             <p class="text-gray-600 mb-6">{{ activity.description }}</p>
+            <p v-if="activity.title === 'Anello Biancoia'">Per un esperienza completa segui la nostra guida:
+              <br> 
+              <a href="https://footpathapp.com/routes/A587E5A9-D449-4112-B46B-74B7906639EB" target="_blank" class="footmap">Itinerario Malga Biancoia</a>
+            </p>
+            
 
-            <!-- Opening Hours -->
+            <!-- Map -->
+
             <div class="mb-6">
-              <h3 class="text-lg font-semibold mb-2">Opening Hours</h3>
-              <div class="space-y-1">
-                <div v-for="schedule in openingHours" :key="schedule.day"
-                     class="flex justify-between text-sm">
-                  <span class="text-gray-600">{{ schedule.day }}</span>
-                  <span class="text-gray-900">{{ schedule.hours }}</span>
+              <h3 class="text-lg font-semibold mb-2">Mappa</h3>
+
+              <!-- Griglia con 3 card -->
+              <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div 
+                  v-for="(card, index) in cards" 
+                  :key="index" 
+                  class="border border-gray-300 rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                  <!-- Immagine card -->
+                  <img 
+                    :src="card.imageUrl" 
+                    :alt="card.title" 
+                    class="w-full h-60 object-cover">
                 </div>
               </div>
             </div>
 
-            <!-- Contact Information -->
-            <div class="mb-6">
-              <h3 class="text-lg font-semibold mb-2">Contact Information</h3>
-              <div class="space-y-1 text-sm">
-                <p><span class="text-gray-600">Phone:</span> <span class="text-gray-900">{{ contactInfo.phone }}</span></p>
-                <p><span class="text-gray-600">Email:</span> <span class="text-gray-900">{{ contactInfo.email }}</span></p>
-                <p><span class="text-gray-600">Website:</span> <span class="text-gray-900">{{ contactInfo.website }}</span></p>
-              </div>
-            </div>
-
-            <!-- Map -->
-            <div class="mb-6">
-              <h3 class="text-lg font-semibold mb-2">Location & Directions</h3>
-              <div ref="mapContainer" class="h-64 rounded-lg"></div>
-            </div>
-
             <!-- Tips for Visitors -->
             <div>
-              <h3 class="text-lg font-semibold mb-2">Tips for Visitors</h3>
+              <h3 class="text-lg font-semibold mb-2">Tips per i visitatori</h3>
               <ul class="list-disc pl-5 text-gray-600">
-                <li>Best time to visit is during morning hours</li>
-                <li>Parking available on-site</li>
-                <li>Guided tours available upon request</li>
-                <li>Don't forget to bring your camera!</li>
+                <li>Il momento perfetto per la camminata è al mattino.</li>
+                <li>Parcheggio disponibile difronte alla Malga</li>
+                <li>Non dimenticare la macchina fotografica!</li>
               </ul>
             </div>
           </div>
@@ -153,3 +109,11 @@ const contactInfo = {
     </div>
   </div>
 </template>
+
+<style>
+.footmap {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+</style>

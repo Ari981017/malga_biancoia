@@ -5,9 +5,9 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
 const navigation = [
   { name: 'Home', href: '#home' },
   { name: 'Menu', href: '#menu' },
-  { name: 'Itinerary', href: '#itinerary' },
+  { name: 'Itinerari', href: '#itinerary' },
   { name: 'News', href: '#news' },
-  { name: 'Gallery', href: '#gallery' },
+  { name: 'Galleria', href: '#gallery' },
 ];
 
 const isOpen = ref(false);
@@ -19,7 +19,7 @@ const isOpen = ref(false);
       <div class="flex justify-between h-16">
         <div class="flex">
           <div class="flex-shrink-0 flex items-center">
-            <span class="text-2xl font-bold text-farm-600">Farmhouse Resort</span>
+            <span class="text-2xl font-bold text-farm-600">Malga Biancoia</span>
           </div>
         </div>
         <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
